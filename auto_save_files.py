@@ -9,6 +9,7 @@ def denoise(im):
 
 path = "C:/Users/tmd44/Desktop/images/"
 save = "C:/Users/tmd44/Desktop/denoise/"
+
 for file in os.listdir(path):
     autograb_data = fits.open(path + file)
     image_data = autograb_data[0].data
