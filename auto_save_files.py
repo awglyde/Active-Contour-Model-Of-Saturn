@@ -13,4 +13,3 @@ for file in os.listdir(path):
     autograb_data = fits.open(path + file)
     image_data = autograb_data[0].data
     misc.imsave(save + file + '.jpg', denoise(image_data))
-    
