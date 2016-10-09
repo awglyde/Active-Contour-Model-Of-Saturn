@@ -1,3 +1,8 @@
+# ignore data
+*.jpg
+*.SBIG
+*.FITS
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
