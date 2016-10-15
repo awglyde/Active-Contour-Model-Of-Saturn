@@ -21,10 +21,10 @@ def determine_crop_size(im_arr, threshold, padding = 0):
 
     valid_indicies = np.where(im_arr > threshold)
     
-    x_min = (valid_indicies[0].min() - padding)
-    x_max = (valid_indicies[0].max() + padding)
-    y_min = (valid_indicies[1].min() - padding)
-    y_max = (valid_indicies[1].max() + padding)
+    x_min = valid_indicies[0].min() - padding
+    x_max = valid_indicies[0].max() + padding
+    y_min = valid_indicies[1].min() - padding
+    y_max = valid_indicies[1].max() + padding
 
     # force the x values to be in the correct domain
     x_min = 0 if (x_min < 0) else x_min
