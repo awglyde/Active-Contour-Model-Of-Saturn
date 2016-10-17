@@ -3,7 +3,6 @@ from scipy import misc, ndimage
 import numpy as np
 import os
 
-
 def denoise(im):
     '''
     Input: takes in image data array
@@ -12,24 +11,25 @@ def denoise(im):
     noisy = im + 0.4 * im.std() * np.random.random(im.shape)
     return ndimage.gaussian_filter(noisy,2)
 
-# path to FITS file
-path = "C:/Github/ASTRON-1263/data/saturn-0.01/"
+if __name__ == "__main__":        
+    # path to FITS file
+    path = "C:/Github/ASTRON-1263/data/saturn-0.01/"
 
-# save images to these paths
-original = "C:/Github/ASTRON-1263/data/original/"
-denoised = "C:/Github/ASTRON-1263/data/denoise/"
+    # save images to these paths
+    original = "C:/Github/ASTRON-1263/data/original/"
+    denoised = "C:/Github/ASTRON-1263/data/denoise/"
 
-save_denoised = False
-save_original = True
+    save_denoised = False
+    save_original = True
 
-for file in os.listdir(path):
-    if file.endswith(".fits"):
-        # extract image from fits
-        autograb_data = fits.open(path + file)
-        image_data = autograb_data[0].data
+    for file in os.listdir(path):
+        if file.endswith(".fits"):
+            # extract image from fits
+            autograb_data = fits.open(path + file)
+            image_data = autograb_data[0].data
 
-        if save_original:
-            misc.imsave(original + file + '.jpg', image_data)
+            if save_original:
+                misc.imsave(original + file + '.jpg', image_data)
 
-        if save_denoised:
-            misc.imsave(denoised + file + '.jpg', denoise(image_data))
+            if save_denoised:
+                misc.imsave(denoised + file + '.jpg', denoise(image_data))

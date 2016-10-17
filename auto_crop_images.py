@@ -59,25 +59,26 @@ def display_image(im_arr):
     plt.grid()
     plt.show()
 
-# path variables
-ims_path = "C:/Github/ASTRON-1263/data/denoise/"
-save_path = "C:/Github/ASTRON-1263/data/cropped/"
+if __name__ == "__main__":
+    # path variables
+    ims_path = "C:/Github/ASTRON-1263/data/denoise/"
+    save_path = "C:/Github/ASTRON-1263/data/cropped/"
 
-# get threshold value      
-base_im = np.array(Image.open(ims_path + "AutoGrab001.fits.jpg")) 
-threshold = determine_threshold(base_im, 0, len(base_im), 0, 150) 
+    # get threshold value      
+    base_im = np.array(Image.open(ims_path + "AutoGrab001.fits.jpg")) 
+    threshold = determine_threshold(base_im, 0, len(base_im), 0, 150) 
 
-for file in os.listdir(ims_path):
-    if file.endswith(".jpg"):
-        # load image
-        im_arr = np.array(Image.open(ims_path + file))
+    for file in os.listdir(ims_path):
+        if file.endswith(".jpg"):
+            # load image
+            im_arr = np.array(Image.open(ims_path + file))
 
-        # get the size to crop to
-        x_min, x_max, y_min, y_max = determine_crop_size(im_arr, threshold, 30)
+            # get the size to crop to
+            x_min, x_max, y_min, y_max = determine_crop_size(im_arr, threshold, 30)
 
-        # crop image
-        cropped_im_arr = crop_image(im_arr, x_min, x_max, y_min, y_max)
+            # crop image
+            cropped_im_arr = crop_image(im_arr, x_min, x_max, y_min, y_max)
 
-        # save Image
-        im = Image.fromarray(cropped_im_arr)
-        im.save(save_path + file)
+            # save Image
+            im = Image.fromarray(cropped_im_arr)
+            im.save(save_path + file)
