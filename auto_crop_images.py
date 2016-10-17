@@ -13,6 +13,15 @@ def determine_threshold(im_arr, x_min, x_max, y_min, y_max, confidence_interval 
 
     return noise_region.mean() + confidence_interval*noise_region.std()
 
+def apply_high_pass(im_arr, cutoff_frequency, new_value):
+    '''
+    Replaces all values in the array that are equal to or below the cutoff frequency
+    by a new value.
+    '''
+    replace_inds = np.where(im_arr <= cutoff_frequency)
+    im_arr[replace_inds] = new_value
+    return
+
 def determine_crop_size(im_arr, threshold, padding = 0):
     '''
     Determines what the size of the image should be based on the
