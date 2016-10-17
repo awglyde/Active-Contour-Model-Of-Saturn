@@ -22,6 +22,12 @@ def apply_high_pass(im_arr, cutoff_frequency, new_value):
     im_arr[replace_inds] = new_value
     return
 
+def crop_image(im_arr, x_min, x_max, y_min, y_max):
+    '''
+    Crop image based on given x and y values. 
+    '''
+    return im_arr[x_min:x_max, y_min:y_max]
+
 def determine_crop_size(im_arr, threshold, padding = 0):
     '''
     Determines what the size of the image should be based on the
@@ -54,8 +60,8 @@ def display_image(im_arr):
     plt.show()
 
 # path variables
-ims_path = "C:/Github/ASTRON-1263/Saturn/denoise/"
-save_path = "C:/Github/ASTRON-1263/Saturn/cropped/"
+ims_path = "C:/Github/ASTRON-1263/data/denoise/"
+save_path = "C:/Github/ASTRON-1263/data/cropped/"
 
 # get threshold value      
 base_im = np.array(Image.open(ims_path + "AutoGrab001.fits.jpg")) 
@@ -70,7 +76,7 @@ for file in os.listdir(ims_path):
         x_min, x_max, y_min, y_max = determine_crop_size(im_arr, threshold, 30)
 
         # crop image
-        cropped_im_arr = im_arr[x_min:x_max, y_min:y_max]
+        cropped_im_arr = crop_image(im_arr, x_min, x_max, y_min, y_max)
 
         # save Image
         im = Image.fromarray(cropped_im_arr)
