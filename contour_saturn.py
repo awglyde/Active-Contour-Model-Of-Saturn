@@ -72,18 +72,19 @@ def display_snake_fig(im_arr, init_snake, final_snake, show_fig = True, save_fig
 
     return
 
-# load and save paths
-data_path = "C:/Github/ASTRON-1263/data/"
-original_path = "C:/Github/ASTRON-1263/data/original/"
+if __name__ == "__main__":
+    # load and save paths
+    data_path = "C:/Github/ASTRON-1263/data/"
+    original_path = "C:/Github/ASTRON-1263/data/original/"
 
-# crop image
-cropped_im = get_cropped_image(original_path + "AutoGrab001.fits.jpg")
+    # crop image
+    cropped_im = get_cropped_image(original_path + "AutoGrab001.fits.jpg")
 
-# get initial snake shape
-init_snake = get_init_snake(cropped_im)
+    # get initial snake shape
+    init_snake = get_init_snake(cropped_im)
 
-# determine contour around saturn
-final_snake = fit_snake(cropped_im, init_snake, auto_blur = True)
+    # determine contour around saturn
+    final_snake = fit_snake(cropped_im, init_snake, auto_blur = True)
 
-# save image
-display_snake_fig(cropped_im, init_snake, final_snake, data_path + "fig.jpg", )
+    # save image
+    display_snake_fig(cropped_im, init_snake, final_snake, data_path + "fig.jpg", )
