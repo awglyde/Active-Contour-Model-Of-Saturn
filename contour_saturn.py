@@ -67,7 +67,7 @@ def display_snake_fig(im_arr, init_snake, final_snake, show_fig = True, save_fig
         plt.show()
     
     if save_fig:
-        plt.savefig(save_file)
+        plt.savefig(save_file, bbox_inches='tight')
 
     # need to close all matplotlib figures
     plt.close("all")
