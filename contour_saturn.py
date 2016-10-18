@@ -77,13 +77,13 @@ def display_snake_fig(im_arr, init_snake, final_snake, show_fig = True, save_fig
 if __name__ == "__main__":
     # load and save paths
     # change file paths based on which computer we're on
-    alex_computer = True
+    alex_computer = False
     if alex_computer:
         im_path = "C:/Github/ASTRON-1263/data/original/"
         save_path  = "C:/Github/ASTRON-1263/data/contour/"
     if not alex_computer:
-        im_path = "/Users/Documents/Pitt Stuff/2016-2017/Fall Semester/Astro 1263/jpgs/"
-        save_path  = "/Users/Documents/Pitt Stuff/2016-2017/Fall Semester/Astro 1263/contours/"
+        im_path = "/Users/tyler/Documents/Pitt Stuff/2016-2017/Fall Semester/Astro 1263/jpgs/"
+        save_path  = "/Users/tyler/Documents/Pitt Stuff/2016-2017/Fall Semester/Astro 1263/contours/"
 
     start = time.clock()
 
@@ -103,7 +103,7 @@ if __name__ == "__main__":
             final_snake = fit_snake(cropped_im, init_snake, auto_blur = True)
 
             # save image
-            display_snake_fig(cropped_im, init_snake, final_snake, show_fig = False, save_fig = True, save_file=(save_path + file))
+            display_snake_fig(cropped_im, init_snake, final_snake, show_fig = True, save_fig = False, save_file=(save_path + file))
     end = time.clock()
     print("delta: ", end-start)
     
