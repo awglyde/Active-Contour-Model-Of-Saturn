@@ -14,3 +14,7 @@ This script takes a list of fits files with one image extracts it and saves them
 #### auto_crop_images.py
 
 This script detects a cutoff threshold for a given region of noise and automatically crops the given set of images to remove that noise. This is useful for Saturn images because Saturn, which is mostly light grey, is surrounded by dark gray pixels. Autocropping each image saves time and allows us to quicken our computer vision techniques.
+
+#### contour_saturn.py
+
+This script crops each image and determines the contour of saturn within the cropped image.
