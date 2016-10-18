@@ -76,8 +76,14 @@ def display_snake_fig(im_arr, init_snake, final_snake, show_fig = True, save_fig
 
 if __name__ == "__main__":
     # load and save paths
-    im_path = "C:/Github/ASTRON-1263/data/original/"
-    save_path  = "C:/Github/ASTRON-1263/data/contour/"
+    # change file paths based on which computer we're on
+    alex_computer = True
+    if alex_computer:
+        im_path = "C:/Github/ASTRON-1263/data/original/"
+        save_path  = "C:/Github/ASTRON-1263/data/contour/"
+    if not alex_computer:
+        im_path = "/Users/Documents/Pitt Stuff/2016-2017/Fall Semester/Astro 1263/jpgs/"
+        save_path  = "/Users/Documents/Pitt Stuff/2016-2017/Fall Semester/Astro 1263/contours/"
 
     start = time.clock()
 
