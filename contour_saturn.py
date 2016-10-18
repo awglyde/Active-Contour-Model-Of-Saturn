@@ -49,7 +49,7 @@ def fit_snake(im_arr, init_shape, auto_blur = False):
         fit_im = im_arr
     return active_contour(fit_im, init_snake, alpha=0.015, beta=10, gamma=0.001)
 
-def display_snake_fig(im_arr, init_snake, final_snake, show_fig = True, save_fig = False, save_file = ""):
+def display_snake_fig(im_arr, init_snake, final_snake, show_fig = True, save_fig = False, save_file = "", show_snake_region=True):
     '''
     Save a figure demonstrating the image, the initial snake, and the final snake.
     If save_fig is true, save_file must also be defined.
@@ -58,7 +58,8 @@ def display_snake_fig(im_arr, init_snake, final_snake, show_fig = True, save_fig
     ax = fig.add_subplot(111)
     plt.gray()
     ax.imshow(im_arr)
-    ax.plot(init_snake[:, 0], init_snake[:, 1], '--r', lw=3)
+    if show_snake_region:
+        ax.plot(init_snake[:, 0], init_snake[:, 1], '--r', lw=3)
     ax.plot(final_snake[:, 0], final_snake[:, 1], '-b', lw=3)
     ax.set_xticks([]), ax.set_yticks([])
     ax.axis([0, im_arr.shape[1], cropped_im.shape[0], 0])
