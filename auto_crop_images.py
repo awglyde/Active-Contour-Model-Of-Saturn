@@ -1,6 +1,7 @@
 import os
 import numpy as np
 import matplotlib.pyplot as plt
+from auto_save_files import denoise
 from PIL import Image
 
 def determine_threshold(im_arr, x_min, x_max, y_min, y_max, confidence_interval = 0):

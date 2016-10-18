@@ -7,16 +7,15 @@ from PIL import Image
 import numpy as np
 import matplotlib.pyplot as plt
 import time
+import os
 
-def get_cropped_image(im_file):
+def get_cropped_image(im_file, threshold):
     '''
     Crops the image.
     '''
     # get threshold value from the denoised image
     im_array = np.array(Image.open(im_file)) 
     denoise_im = denoise(im_array)
-
-    threshold = determine_threshold(denoise_im, 0, len(im_array), 0, 150, confidence_interval=10)
 
     # determine the new crop size
     x_min, x_max, y_min, y_max = determine_crop_size(denoise_im, threshold, padding=30)
@@ -70,21 +69,35 @@ def display_snake_fig(im_arr, init_snake, final_snake, show_fig = True, save_fig
     if save_fig:
         plt.savefig(save_file)
 
+    # need to close all matplotlib figures
+    plt.close("all")
+
     return
 
 if __name__ == "__main__":
     # load and save paths
-    data_path = "C:/Github/ASTRON-1263/data/"
-    original_path = "C:/Github/ASTRON-1263/data/original/"
+    im_path = "C:/Github/ASTRON-1263/data/original/"
+    save_path  = "C:/Github/ASTRON-1263/data/contour/"
 
-    # crop image
-    cropped_im = get_cropped_image(original_path + "AutoGrab001.fits.jpg")
+    start = time.clock()
 
-    # get initial snake shape
-    init_snake = get_init_snake(cropped_im)
+    # determine base threshold
+    base_im = np.array(Image.open(im_path + "AutoGrab001.fits.jpg"))
+    base_threshold = determine_threshold(denoise(base_im), 0, len(base_im), 0, 150, confidence_interval = 10)
 
-    # determine contour around saturn
-    final_snake = fit_snake(cropped_im, init_snake, auto_blur = True)
+    for file in os.listdir(im_path):
+        if file.endswith(".jpg"):
+            # crop image
+            cropped_im = get_cropped_image(im_path + file, base_threshold)
 
-    # save image
-    display_snake_fig(cropped_im, init_snake, final_snake, data_path + "fig.jpg", )
+            # get initial snake shape
+            init_snake = get_init_snake(cropped_im)
+
+            # determine contour around saturn
+            final_snake = fit_snake(cropped_im, init_snake, auto_blur = True)
+
+            # save image
+            display_snake_fig(cropped_im, init_snake, final_snake, show_fig = False, save_fig = True, save_file=(save_path + file))
+    end = time.clock()
+    print("delta: ", end-start)
+    
