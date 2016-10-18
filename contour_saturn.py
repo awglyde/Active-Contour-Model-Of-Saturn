@@ -44,7 +44,7 @@ def fit_snake(im_arr, init_shape, auto_blur = False):
     '''
     fit_im = []
     if auto_blur:
-        fit_im = gaussian(im_arr, 3)
+        fit_im = gaussian(im_arr, 5)
     else:
         fit_im = im_arr
     return active_contour(fit_im, init_snake, alpha=0.015, beta=10, gamma=0.001)
@@ -78,7 +78,7 @@ def display_snake_fig(im_arr, init_snake, final_snake, show_fig = True, save_fig
 if __name__ == "__main__":
     # load and save paths
     # change file paths based on which computer we're on
-    alex_computer = False
+    alex_computer = True
     if alex_computer:
         im_path = "C:/Github/ASTRON-1263/data/original/"
         save_path  = "C:/Github/ASTRON-1263/data/contour/"
@@ -92,8 +92,10 @@ if __name__ == "__main__":
     base_im = np.array(Image.open(im_path + "AutoGrab001.fits.jpg"))
     base_threshold = determine_threshold(denoise(base_im), 0, len(base_im), 0, 150, confidence_interval = 10)
 
+    count = 0
     for file in os.listdir(im_path):
         if file.endswith(".jpg"):
+            count += 1
             # crop image
             cropped_im = get_cropped_image(im_path + file, base_threshold)
 
@@ -104,7 +106,10 @@ if __name__ == "__main__":
             final_snake = fit_snake(cropped_im, init_snake, auto_blur = True)
 
             # save image
-            display_snake_fig(cropped_im, init_snake, final_snake, show_fig = True, save_fig = False, save_file=(save_path + file))
+            display_snake_fig(cropped_im, init_snake, final_snake, show_fig = False, save_fig = True, save_file=(save_path + file))
+
+        if count == 10:
+            break
     end = time.clock()
     print("delta: ", end-start)
     
