@@ -1,4 +1,6 @@
 # ignore data
+.vscode
+__pycache__
 data/
 *.SBIG
 *.FITS
