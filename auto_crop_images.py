@@ -3,14 +3,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 from PIL import Image
 
-def determine_threshold(im_arr, x_min, x_max, y_min, y_max, confidence_interval = 10):
+def determine_threshold(im_arr, x_min, x_max, y_min, y_max, confidence_interval = 0):
     ''' 
     Determine a cutoff threshold provided an image and a 
     region of noise_region bound by x_min, x_max, y_min, and y_max.
     '''
-
     noise_region = im_arr[x_min:x_max, y_min:y_max]
-
     return noise_region.mean() + confidence_interval*noise_region.std()
 
 def apply_high_pass(im_arr, cutoff_frequency, new_value):
@@ -66,7 +64,7 @@ if __name__ == "__main__":
 
     # get threshold value      
     base_im = np.array(Image.open(ims_path + "AutoGrab001.fits.jpg")) 
-    threshold = determine_threshold(base_im, 0, len(base_im), 0, 150) 
+    threshold = determine_threshold(base_im, 0, len(base_im), 0, 150, confidence_interval = 10) 
 
     for file in os.listdir(ims_path):
         if file.endswith(".jpg"):
@@ -74,7 +72,7 @@ if __name__ == "__main__":
             im_arr = np.array(Image.open(ims_path + file))
 
             # get the size to crop to
-            x_min, x_max, y_min, y_max = determine_crop_size(im_arr, threshold, 30)
+            x_min, x_max, y_min, y_max = determine_crop_size(im_arr, threshold, padding = 30)
 
             # crop image
             cropped_im_arr = crop_image(im_arr, x_min, x_max, y_min, y_max)
