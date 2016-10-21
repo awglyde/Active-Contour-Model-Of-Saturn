@@ -44,7 +44,7 @@ def fit_snake(im_arr, init_shape, auto_blur = False):
     '''
     fit_im = []
     if auto_blur:
-        fit_im = gaussian(im_arr, 5)
+        fit_im = gaussian(im_arr, 4)
     else:
         fit_im = im_arr
     return active_contour(fit_im, init_snake, alpha=0.015, beta=10, gamma=0.001)

@@ -18,3 +18,8 @@ This script detects a cutoff threshold for a given region of noise and automatic
 #### contour_saturn.py
 
 This script crops each image and determines the contour of saturn within the cropped image.
+
+
+#### compare_contour.py
+
+This script compares the contours of images of Saturn to contours on user defined "good" images.
