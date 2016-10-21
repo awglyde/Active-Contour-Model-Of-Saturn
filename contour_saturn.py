@@ -49,7 +49,7 @@ def fit_snake(im_arr, init_shape, auto_blur = False):
         fit_im = im_arr
     return active_contour(fit_im, init_snake, alpha=0.015, beta=10, gamma=0.001)
 
-def display_snake_fig(im_arr, init_snake, final_snake, show_fig = True, save_fig = False, save_file = "", show_snake_region=True):
+def display_snake_fig(im_arr, init_snake, final_snake, show_fig = False, save_fig = True, save_file = "", show_snake_region=True):
     '''
     Save a figure demonstrating the image, the initial snake, and the final snake.
     If save_fig is true, save_file must also be defined.
@@ -78,7 +78,7 @@ def display_snake_fig(im_arr, init_snake, final_snake, show_fig = True, save_fig
 if __name__ == "__main__":
     # load and save paths
     # change file paths based on which computer we're on
-    alex_computer = True
+    alex_computer = False
     if alex_computer:
         im_path = "C:/Github/ASTRON-1263/data/original/"
         save_path  = "C:/Github/ASTRON-1263/data/contour/"
