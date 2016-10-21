@@ -11,23 +11,23 @@ import time
 import os
 
 def get_snakes(im_path, base_filename, max_count=-1):
-    # determine base threshold
-    base_im = np.array(Image.open(im_path + "AutoGrab001.fits.jpg"))
-    base_threshold = determine_threshold(denoise(base_im), 0, len(base_im), 0, 150, confidence_interval = 10)
+	# determine base threshold
+	base_im = np.array(Image.open(im_path + "AutoGrab001.fits.jpg"))
+	base_threshold = determine_threshold(denoise(base_im), 0, len(base_im), 0, 150, confidence_interval = 10)
 
 	count = 0
-    for file in os.listdir(im_path):
-    	if count == max_count:
-    		break
-        if file.endswith(".jpg"):
-            # crop image
-            cropped_im = get_cropped_image(im_path + file, base_threshold)
+	for file in os.listdir(im_path):
+		if count == max_count:
+			break
+		if file.endswith(".jpg"):
+			# crop image
+			cropped_im = get_cropped_image(im_path + file, base_threshold)
 
-            # get initial snake shape
-            init_snake = get_init_snake(cropped_im)
+			# get initial snake shape
+			init_snake = get_init_snake(cropped_im)
 
-            # determine contour around saturn
-            final_snake = fit_snake(cropped_im, init_snake, auto_blur = True)
+			# determine contour around saturn
+			final_snake = fit_snake(cropped_im, init_snake, auto_blur = True)
 		
 if __name__ == "__main__":
 	# load and save paths
