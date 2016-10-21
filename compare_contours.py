@@ -9,20 +9,6 @@ import matplotlib.pyplot as plt
 import time
 import os
 
-
-# load and save paths
-# change file paths based on which computer we're on
-alex_computer = False
-if alex_computer:
-    im_path = "C:/Github/ASTRON-1263/data/original/"
-    save_path  = "C:/Github/ASTRON-1263/data/contour/"
-if not alex_computer:
-	good_snake_path = "/Users/tyler/Documents/Pitt Stuf/2016-2017/Fall Semester/Astro 1263/goods/"
-    im_path = "/Users/tyler/Documents/Pitt Stuff/2016-2017/Fall Semester/Astro 1263/jpgs/"
-    save_path  = "/Users/tyler/Documents/Pitt Stuff/2016-2017/Fall Semester/Astro 1263/contours/"
-
-start = time.clock()
-
 def return_good_snake(good_jpg_file_name=AutoGrab030.fits.jpg):
 	# determine base threshold
 	base_im = np.array(Image.open(im_path + "good_jpg_file_name"))
@@ -57,12 +43,21 @@ def return_snake_as_array():
 	        # determine contour around saturn
 	        final_snake = fit_snake(cropped_im, init_snake, auto_blur = True)
 
-	        
-	end = time.clock()
-	print("delta: ", end-start)
-
-
 if __name__ = "__main__":
+    
+	# load and save paths
+	# change file paths based on which computer we're on
+	alex_computer = True
+	if alex_computer:
+		im_path = "C:/Github/ASTRON-1263/data/original/"
+		save_path  = "C:/Github/ASTRON-1263/data/contour/"
+	if not alex_computer:
+		good_snake_path = "/Users/tyler/Documents/Pitt Stuf/2016-2017/Fall Semester/Astro 1263/goods/"
+		im_path = "/Users/tyler/Documents/Pitt Stuff/2016-2017/Fall Semester/Astro 1263/jpgs/"
+		save_path  = "/Users/tyler/Documents/Pitt Stuff/2016-2017/Fall Semester/Astro 1263/contours/"
+
+	start = time.clock()
+
 	good_snake = return_good_snake()
 	test_snake = return_snake_as_array()
 
@@ -70,3 +65,6 @@ if __name__ = "__main__":
 
 	if np.sum(diff) > threshold:
 		good_pic = Image.fromarray()
+
+	end = time.clock()
+	print("delta: ", end-start)
