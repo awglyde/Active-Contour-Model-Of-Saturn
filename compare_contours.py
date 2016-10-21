@@ -8,11 +8,12 @@ from PIL import Image
 import numpy as np
 import matplotlib.pyplot as plt
 import time
+import math
 import os
 
 def get_snakes(im_path, base_filename, max_count=-1):
 	# determine base threshold
-	base_im = np.array(Image.open(im_path + "AutoGrab001.fits.jpg"))
+	base_im = np.array(Image.open(im_path + base_filename))
 	base_threshold = determine_threshold(denoise(base_im), 0, len(base_im), 0, 150, confidence_interval = 10)
 
 	count = 0
@@ -21,7 +22,6 @@ def get_snakes(im_path, base_filename, max_count=-1):
 		if count == max_count:
 			break
 		if file.endswith(".jpg"):
-			print(file)
 			count += 1
 			# crop image
 			cropped_im = get_cropped_image(im_path + file, base_threshold)
@@ -58,8 +58,8 @@ if __name__ == "__main__":
 
 	start = time.clock()
 	
-	good_snakes = get_snakes(good_im_path, "AutoGrab030.fits.jpg", 10)
-	test_snakes = get_snakes(im_path, "AutoGrab001.fits.jpg", 10)
+	good_snakes = get_snakes(good_im_path, "AutoGrab030.fits.jpg", 1)
+	test_snakes = get_snakes(im_path, "AutoGrab030.fits.jpg", 1)
 
 	end = time.clock()
 	print("delta: ", end-start)
