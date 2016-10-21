@@ -34,7 +34,10 @@ def get_snakes(im_path, base_filename, max_count=-1):
 			snakes_list.append(final_snake)
 	return snakes_list
 
-def compare_snakes(snakes_left, snakes_right):
+def compute_generic_representation(snake):
+	pass
+
+def compare_snakes(generic_snake_left, generic_snake_right):
     pass
 
 def is_good_image(snake_diff, threshold):
@@ -55,8 +58,8 @@ if __name__ == "__main__":
 
 	start = time.clock()
 	
-	good_snake = get_snakes(good_im_path, "AutoGrab030.fits.jpg", 10)
-	test_snake = get_snakes(im_path, "AutoGrab001.fits.jpg", 10)
+	good_snakes = get_snakes(good_im_path, "AutoGrab030.fits.jpg", 10)
+	test_snakes = get_snakes(im_path, "AutoGrab001.fits.jpg", 10)
 
 	end = time.clock()
 	print("delta: ", end-start)
