@@ -33,7 +33,13 @@ def get_snakes(im_path, base_filename, max_count=-1):
 			final_snake = fit_snake(cropped_im, init_snake, auto_blur = True)
 			snakes_list.append(final_snake)
 	return snakes_list
-		
+
+def compare_snakes(snakes_left, snakes_right):
+    pass
+
+def is_good_image(snake_diff, threshold):
+    pass
+
 if __name__ == "__main__":
 	# load and save paths
 	# change file paths based on which computer we're on
