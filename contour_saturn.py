@@ -38,7 +38,7 @@ def get_init_snake(im_arr):
 
     return np.array([x, y]).T
     
-def fit_snake(im_arr, init_shape, auto_blur = False):
+def fit_snake(im_arr, init_snake, auto_blur = False):
     '''
     Fits the intial snake value to the image passed in.
     '''

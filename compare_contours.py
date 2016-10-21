@@ -16,10 +16,13 @@ def get_snakes(im_path, base_filename, max_count=-1):
 	base_threshold = determine_threshold(denoise(base_im), 0, len(base_im), 0, 150, confidence_interval = 10)
 
 	count = 0
+	snakes_list = []
 	for file in os.listdir(im_path):
 		if count == max_count:
 			break
 		if file.endswith(".jpg"):
+			print(file)
+			count += 1
 			# crop image
 			cropped_im = get_cropped_image(im_path + file, base_threshold)
 
@@ -28,6 +31,8 @@ def get_snakes(im_path, base_filename, max_count=-1):
 
 			# determine contour around saturn
 			final_snake = fit_snake(cropped_im, init_snake, auto_blur = True)
+			snakes_list.append(final_snake)
+	return snakes_list
 		
 if __name__ == "__main__":
 	# load and save paths
@@ -43,14 +48,9 @@ if __name__ == "__main__":
 		save_path  = "/Users/tyler/Documents/Pitt Stuff/2016-2017/Fall Semester/Astro 1263/contours/"
 
 	start = time.clock()
-
-	good_snake = get_snakes(good_im_path, "AutoGrab030.fits.jpg")
-	test_snake = get_snakes(im_path, "AutoGrab001.fits.jpg", 100)
-
-	diff = good_snake - test_snake
-
-	if np.sum(diff) > threshold:
-		good_pic = Image.fromarray()
+	
+	good_snake = get_snakes(good_im_path, "AutoGrab030.fits.jpg", 10)
+	test_snake = get_snakes(im_path, "AutoGrab001.fits.jpg", 10)
 
 	end = time.clock()
 	print("delta: ", end-start)
