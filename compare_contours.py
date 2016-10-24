@@ -64,10 +64,10 @@ if __name__ == "__main__":
 	start = time.clock()
 	
 	good_snakes, good_files = get_snakes(good_im_path, good_im_path + "AutoGrab001.fits.jpg", 1)
-	test_snakes, test_files = get_snakes(im_path, good_im_path + "AutoGrab001.fits.jpg", 15)
+	test_snakes, test_files = get_snakes(im_path, good_im_path + "AutoGrab001.fits.jpg")
 
 	for i in range(0, len(test_snakes)):
-		print(compare_snakes(good_snakes[0], test_snakes[i]), good_files [0], test_files[i])
+		print(compare_snakes(good_snakes[0], test_snakes[i]), good_files[0], test_files[i])
 
 	end = time.clock()
 	print("delta: ", end-start)
