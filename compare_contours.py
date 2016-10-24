@@ -22,11 +22,10 @@ def get_snakes(im_path, base_filename, max_count=-1):
 		if count == max_count:
 			break
 		if file.endswith(".jpg"):
-			print(file)
 			count += 1
 			# crop image
 			cropped_im = get_cropped_image(im_path + file, base_threshold)
-
+			
 			# get initial snake shape
 			init_snake = get_init_snake(cropped_im)
 
@@ -39,7 +38,9 @@ def compute_generic_representation(snake):
 	pass
 
 def compare_snakes(generic_snake_left, generic_snake_right):
-    pass
+    difference = generic_snake_right - generic_snake_left
+    sum_distances_squared = np.sum(difference**2)
+    return np.sqrt(sum_distances_squared)
 
 def is_good_image(snake_diff, threshold):
     pass
@@ -47,20 +48,22 @@ def is_good_image(snake_diff, threshold):
 if __name__ == "__main__":
 	# load and save paths
 	# change file paths based on which computer we're on
-	alex_computer = True
+	alex_computer = False
 	if alex_computer:
 		good_im_path = "C:/Github/ASTRON-1263/data/original/" 
 		im_path = "C:/Github/ASTRON-1263/data/original/"
 		save_path  = "C:/Github/ASTRON-1263/data/contour/"
 	if not alex_computer:
-		good_im_path = "/Users/tyler/Documents/Pitt Stuf/2016-2017/Fall Semester/Astro 1263/goods/"
+		good_im_path = "/Users/tyler/Documents/Pitt Stuff/2016-2017/Fall Semester/Astro 1263/goods/"
 		im_path = "/Users/tyler/Documents/Pitt Stuff/2016-2017/Fall Semester/Astro 1263/jpgs/"
 		save_path  = "/Users/tyler/Documents/Pitt Stuff/2016-2017/Fall Semester/Astro 1263/contours/"
+		bad_path = "/Users/tyler/Documents/Pitt Stuff/2016-2017/Fall Semester/Astro 1263/bads/"
 
 	start = time.clock()
 	
-	good_snakes = get_snakes(good_im_path, good_im_path + "AutoGrab030.fits.jpg", 1)
-	test_snakes = get_snakes(im_path, good_im_path + "AutoGrab030.fits.jpg", 1)
+	good_snakes = get_snakes(good_im_path, good_im_path + "AutoGrab001.fits.jpg", 1)
+	test_snakes = get_snakes(bad_path, good_im_path + "AutoGrab001.fits.jpg", 1)
 
+	print(compare_snakes(good_snakes[0], test_snakes[0]))
 	end = time.clock()
 	print("delta: ", end-start)
