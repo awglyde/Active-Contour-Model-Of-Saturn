@@ -18,6 +18,7 @@ def get_snakes(im_path, base_filename, max_count=-1):
 
 	count = 0
 	snakes_list = []
+	file_list = []
 	for file in os.listdir(im_path):
 		if count == max_count:
 			break
@@ -32,7 +33,8 @@ def get_snakes(im_path, base_filename, max_count=-1):
 			# determine contour around saturn
 			final_snake = fit_snake(cropped_im, init_snake, auto_blur = True)
 			snakes_list.append(final_snake)
-	return snakes_list
+			file_list.append(file)
+	return snakes_list, file_list
 
 def compute_generic_representation(snake):
 	pass
@@ -61,9 +63,11 @@ if __name__ == "__main__":
 
 	start = time.clock()
 	
-	good_snakes = get_snakes(good_im_path, good_im_path + "AutoGrab001.fits.jpg", 1)
-	test_snakes = get_snakes(bad_path, good_im_path + "AutoGrab001.fits.jpg", 1)
+	good_snakes, good_files = get_snakes(good_im_path, good_im_path + "AutoGrab001.fits.jpg", 1)
+	test_snakes, test_files = get_snakes(im_path, good_im_path + "AutoGrab001.fits.jpg", 15)
 
-	print(compare_snakes(good_snakes[0], test_snakes[0]))
+	for i in range(0, len(test_snakes)):
+		print(compare_snakes(good_snakes[0], test_snakes[i]), good_files [0], test_files[i])
+
 	end = time.clock()
 	print("delta: ", end-start)
