@@ -59,8 +59,8 @@ if __name__ == "__main__":
 
 	start = time.clock()
 	
-	good_snakes = get_snakes(good_im_path, good_im_path + "AutoGrab030.fits.jpg", 1)
-	test_snakes = get_snakes(im_path, good_im_path + "AutoGrab030.fits.jpg", 1)
+	good_snakes = get_snakes(good_im_path, good_im_path + "AutoGrab001.fits.jpg", 1)
+	test_snakes = get_snakes(im_path, good_im_path + "AutoGrab001.fits.jpg", 1)
 
 	end = time.clock()
 	print("delta: ", end-start)
