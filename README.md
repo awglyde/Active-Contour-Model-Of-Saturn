@@ -3,6 +3,14 @@ ASTRON 1263 - Final Project - Fast Image and Automatic Analysis of Saturn
 
 ## File Description
 
+#### src/quality_analysis.py
+
+This script determines "good" quality saturn images out of a set of jpegs provided to the script. "Good" means that the rings of saturn have not been warped by seeing affects in the atmosphere.
+
+#### src/utilities.py
+
+This script contains a bunch of functions that are useful when analyzing the quality of saturn and for debugging purposes.
+
 #### test/denoised_saturn_gif.gif
 
 This GIF file demonstrates the seeing affects caused by turbulance in the atmosphere when viewing Saturn at low altitudes.
