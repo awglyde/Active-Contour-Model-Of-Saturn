@@ -1,11 +1,9 @@
 import os
 import numpy as np
 import matplotlib.pyplot as plt
-import time
 #Image/FITS Processing libraries
 from PIL import Image
-from astropy.io import fits
-from scipy import misc, ndimage
+from scipy import ndimage
 #Active Contour libraries
 from skimage.filters import gaussian
 from skimage.segmentation import active_contour
@@ -65,37 +63,6 @@ def display_image(im_arr):
     plt.grid()
     plt.show()
 
-def auto_crop_images():
-    '''
-    formerly this was the if __main__ function in the auto_crop_images library
-    
-    running this will take the images from ims_path and put them in the save_path
-    '''
-    # path variables
-    ims_path = "C:/Github/ASTRON-1263/data/denoise/"
-    save_path = "C:/Github/ASTRON-1263/data/cropped/"
-
-    # get threshold value      
-    base_im = np.array(Image.open(ims_path + "AutoGrab001.fits.jpg")) 
-    threshold = determine_threshold(base_im, 0, len(base_im), 0, 150, confidence_interval = 10) 
-
-    for file in os.listdir(ims_path):
-        if file.endswith(".jpg"):
-            # load image
-            im_arr = np.array(Image.open(ims_path + file))
-
-            # get the size to crop to
-            x_min, x_max, y_min, y_max = determine_crop_size(im_arr, threshold, padding = 30)
-
-            # crop image
-            cropped_im_arr = crop_image(im_arr, x_min, x_max, y_min, y_max)
-
-            # save Image
-            im = Image.fromarray(cropped_im_arr)
-            im.save(save_path + file)
-
-# from auto_save_files:
-
 def denoise(im):
     '''
     Input: takes in image data array
@@ -103,36 +70,6 @@ def denoise(im):
     '''
     noisy = im + 0.4 * im.std() * np.random.random(im.shape)
     return ndimage.gaussian_filter(noisy,2)
-
-def auto_save_files():
-    '''
-    formerly the __main__ function from the auto_save_files.py script
-    running this will take FITS files from path and save the jpgs in original, 
-    and denoised versions in denoised
-    '''
-    # path to FITS file
-    path = "C:/Github/ASTRON-1263/data/saturn-0.01/"
-
-    # save images to these paths
-    original = "C:/Github/ASTRON-1263/data/original/"
-    denoised = "C:/Github/ASTRON-1263/data/denoise/"
-
-    save_denoised = False
-    save_original = True
-
-    for file in os.listdir(path):
-        if file.endswith(".fits"):
-            # extract image from fits
-            autograb_data = fits.open(path + file)
-            image_data = autograb_data[0].data
-
-            if save_original:
-                misc.imsave(original + file + '.jpg', image_data)
-
-            if save_denoised:
-                misc.imsave(denoised + file + '.jpg', denoise(image_data))
-
-#from contour_saturn.py:
 
 def get_cropped_image(im_file, threshold):
     '''
@@ -200,45 +137,6 @@ def display_snake_fig(im_arr, init_snake, final_snake, show_fig = False, save_fi
 
     return
 
-def contour_saturn():
-    '''formerly the __main__ function from contour_saturn.py
-    running this will take jpgs from im_path, crop them, and apply a contour
-    it will save jpg images with the contours overlaid in save_path
-    '''
-    # load and save paths
-    # change file paths based on which computer we're on
-    alex_computer = False
-    if alex_computer:
-        im_path = "C:/Github/ASTRON-1263/data/original/"
-        save_path  = "C:/Github/ASTRON-1263/data/contour/"
-    if not alex_computer:
-        im_path = "/Users/tyler/Documents/Pitt Stuff/2016-2017/Fall Semester/Astro 1263/jpgs/"
-        save_path  = "/Users/tyler/Documents/Pitt Stuff/2016-2017/Fall Semester/Astro 1263/contours/"
-
-    start = time.clock()
-
-    # determine base threshold
-    base_im = np.array(Image.open(im_path + "AutoGrab001.fits.jpg"))
-    base_threshold = determine_threshold(denoise(base_im), 0, len(base_im), 0, 150, confidence_interval = 10)
-
-    for file in os.listdir(im_path):
-        if file.endswith(".jpg"):
-            # crop image
-            cropped_im = get_cropped_image(im_path + file, base_threshold)
-
-            # get initial snake shape
-            init_snake = get_init_snake(cropped_im)
-
-            # determine contour around saturn
-            final_snake = fit_snake(cropped_im, init_snake, auto_blur = True)
-
-            # save image
-            display_snake_fig(cropped_im, init_snake, final_snake, show_fig = False, save_fig = True, save_file=(save_path + file))
-    end = time.clock()
-    print("delta: ", end-start)
-
-# from compare_contours.py:
-
 def get_snakes(im_path, base_filename, max_count=-1):
 	# determine base threshold
 	base_im = np.array(Image.open(base_filename))
@@ -268,58 +166,3 @@ def compare_snakes(generic_snake_left, generic_snake_right):
     difference = generic_snake_right - generic_snake_left
     sum_distances_squared = np.sum(difference**2)
     return np.sqrt(sum_distances_squared)
-
-def compare_contours():
-	'''
-	formerly the __main__ from the compare_contours.py file
-
-	running this will read images from good_im_path and compare the contours to images from
-	im_path. It currently also prints out the contour arrays for the good and the bad images,
-	with their respective file names.
-	'''
-	# load and save paths
-	# change file paths based on which computer we're on
-	alex_computer = False
-	if alex_computer:
-		good_im_path = "C:/Github/ASTRON-1263/data/original/" 
-		im_path = "C:/Github/ASTRON-1263/data/original/"
-		save_path  = "C:/Github/ASTRON-1263/data/contour/"
-	if not alex_computer:
-		good_im_path = "/Users/tyler/Documents/Pitt Stuff/2016-2017/Fall Semester/Astro 1263/goods/"
-		im_path = "/Users/tyler/Documents/Pitt Stuff/2016-2017/Fall Semester/Astro 1263/jpgs/"
-		save_path  = "/Users/tyler/Documents/Pitt Stuff/2016-2017/Fall Semester/Astro 1263/contours/"
-		bad_path = "/Users/tyler/Documents/Pitt Stuff/2016-2017/Fall Semester/Astro 1263/bads/"
-
-	start = time.clock()
-	
-	good_snakes, good_files = get_snakes(good_im_path, good_im_path + "AutoGrab001.fits.jpg", 1)
-	test_snakes, test_files = get_snakes(im_path, good_im_path + "AutoGrab001.fits.jpg")
-
-	for i in range(0, len(test_snakes)):
-		print(compare_snakes(good_snakes[0], test_snakes[i]), good_files[0], test_files[i])
-
-
-	end = time.clock()
-	print("delta: ", end-start)
-
-# from show_stacked_images:
-def show_stacked_images():
-	'''
-	formerly the __main__ function from show_stacked_images.py
-
-	running this will print out a stacked version of all of the images in file_path
-	'''
-	data = []
-	file_path = "/Users/tyler/Desktop/denoised/"
-	sum_img_data = 0
-	for file in os.listdir(file_path):
-		if file.endswith(".jpg"):
-			#array = np.array(Image.open(file_path + file).convert("L"))
-			array = np.array(Image.open(file_path + file))
-			sum_img_data += array
-
-	sum_img_data = sum_img_data/2
-	sum_img = Image.fromarray(sum_img_data)
-	plt.imshow(sum_img, cmap='Greys_r')
-
-	plt.show()

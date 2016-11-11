@@ -16,7 +16,7 @@ if __name__ == "__main__":
         im_path = "/Users/tyler/Documents/Pitt Stuff/2016-2017/Fall Semester/Astro 1263/jpgs/"
         save_path  = "/Users/tyler/Documents/Pitt Stuff/2016-2017/Fall Semester/Astro 1263/contours/"
         
-    im_path = "C:/Users/tmd44/Desktop/denoise/"
+    im_path = "C:/Users/tmd44/Desktop/small-denoise/"
     save_path = "C:/Users/tmd44/Desktop/contours/"
     start = time.clock()
 
