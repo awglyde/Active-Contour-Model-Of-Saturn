@@ -63,16 +63,11 @@ if __name__ == "__main__":
 
 	start = time.clock()
 	
-<<<<<<< HEAD:test/compare_contours.py
-	good_snakes = get_snakes(good_im_path, good_im_path + "AutoGrab001.fits.jpg", 1)
-	test_snakes = get_snakes(im_path, good_im_path + "AutoGrab001.fits.jpg", 1)
-=======
 	good_snakes, good_files = get_snakes(good_im_path, good_im_path + "AutoGrab001.fits.jpg", 1)
 	test_snakes, test_files = get_snakes(im_path, good_im_path + "AutoGrab001.fits.jpg")
 
 	for i in range(0, len(test_snakes)):
 		print(compare_snakes(good_snakes[0], test_snakes[i]), good_files[0], test_files[i])
->>>>>>> 5c961a1ceb99348209b4879364b7ea4c2f875b8a:compare_contours.py
 
 	end = time.clock()
 	print("delta: ", end-start)
