@@ -2,7 +2,6 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 import time
-import math
 #Image/FITS Processing libraries
 from PIL import Image
 from astropy.io import fits
@@ -12,7 +11,6 @@ from skimage.filters import gaussian
 from skimage.segmentation import active_contour
 
 # from auto_crop_images:
-
 def determine_threshold(im_arr, x_min, x_max, y_min, y_max, confidence_interval = 0):
     ''' 
     Determine a cutoff threshold provided an image and a 
@@ -68,11 +66,11 @@ def display_image(im_arr):
     plt.show()
 
 def auto_crop_images():
-	'''
-	formerly this was the if __main__ function in the auto_crop_images library
-
-	running this will take the images from ims_path and put them in the save_path
-	'''
+    '''
+    formerly this was the if __main__ function in the auto_crop_images library
+    
+    running this will take the images from ims_path and put them in the save_path
+    '''
     # path variables
     ims_path = "C:/Github/ASTRON-1263/data/denoise/"
     save_path = "C:/Github/ASTRON-1263/data/cropped/"
@@ -107,12 +105,11 @@ def denoise(im):
     return ndimage.gaussian_filter(noisy,2)
 
 def auto_save_files():
-	'''
-	formerly the __main__ function from the auto_save_files.py script
-
-	running this will take FITS files from path and save the jpgs in original, 
-	and denoised versions in denoised
-	'''     
+    '''
+    formerly the __main__ function from the auto_save_files.py script
+    running this will take FITS files from path and save the jpgs in original, 
+    and denoised versions in denoised
+    '''
     # path to FITS file
     path = "C:/Github/ASTRON-1263/data/saturn-0.01/"
 
@@ -204,10 +201,10 @@ def display_snake_fig(im_arr, init_snake, final_snake, show_fig = False, save_fi
     return
 
 def contour_saturn():
-	'''formerly the __main__ function from contour_saturn.py
-	running this will take jpgs from im_path, crop them, and apply a contour
-	it will save jpg images with the contours overlaid in save_path
-	'''
+    '''formerly the __main__ function from contour_saturn.py
+    running this will take jpgs from im_path, crop them, and apply a contour
+    it will save jpg images with the contours overlaid in save_path
+    '''
     # load and save paths
     # change file paths based on which computer we're on
     alex_computer = False
