@@ -116,15 +116,16 @@ def display_snake_fig(im_arr, init_snake, final_snake, show_fig = False, save_fi
     Save a figure demonstrating the image, the initial snake, and the final snake.
     If save_fig is true, save_file must also be defined.
     '''
-    fig = plt.figure(figsize=(7, 7))
-    ax = fig.add_subplot(111)
-    plt.gray()
-    ax.imshow(im_arr)
-    if show_snake_region:
-        ax.plot(init_snake[:, 0], init_snake[:, 1], '--r', lw=3)
-    ax.plot(final_snake[:, 0], final_snake[:, 1], '-b', lw=3)
-    ax.set_xticks([]), ax.set_yticks([])
-    ax.axis([0, im_arr.shape[1], cropped_im.shape[0], 0])
+    if show_fig or save_fig:
+        fig = plt.figure(figsize=(7, 7))
+        ax = fig.add_subplot(111)
+        plt.gray()
+        ax.imshow(im_arr)
+        if show_snake_region:
+            ax.plot(init_snake[:, 0], init_snake[:, 1], '--r', lw=3)
+        ax.plot(final_snake[:, 0], final_snake[:, 1], '-b', lw=3)
+        ax.set_xticks([]), ax.set_yticks([])
+        ax.axis([0, im_arr.shape[1], im_arr.shape[0], 0])
 
     if show_fig:
         plt.show()

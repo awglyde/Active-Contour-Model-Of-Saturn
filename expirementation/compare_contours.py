@@ -56,11 +56,10 @@ if __name__ == "__main__":
 		im_path = "C:/Github/ASTRON-1263/data/original/"
 		save_path  = "C:/Github/ASTRON-1263/data/contour/"
 	if not alex_computer:
-		good_im_path = "/Users/tyler/Documents/Pitt Stuff/2016-2017/Fall Semester/Astro 1263/goods/"
-		im_path = "/Users/tyler/Documents/Pitt Stuff/2016-2017/Fall Semester/Astro 1263/jpgs/"
-		save_path  = "/Users/tyler/Documents/Pitt Stuff/2016-2017/Fall Semester/Astro 1263/contours/"
-		bad_path = "/Users/tyler/Documents/Pitt Stuff/2016-2017/Fall Semester/Astro 1263/bads/"
-
+		im_path = "C:/Users/tmd44/Desktop/small-denoise/"
+		save_path = "C:/Users/tmd44/Desktop/contours/"
+		good_im_path = "C:/Users/tmd44/Desktop/goods/"
+  
 	start = time.clock()
 	
 	good_snakes, good_files = get_snakes(good_im_path, good_im_path + "AutoGrab001.fits.jpg", 1)

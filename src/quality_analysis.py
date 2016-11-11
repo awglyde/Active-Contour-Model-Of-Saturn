@@ -4,11 +4,12 @@ import numpy as np
 import time
 #Image/FITS Processing libraries
 from PIL import Image
-
+        
 if __name__ == "__main__":
     # load and save paths
     # change file paths based on which computer we're on
     alex_computer = False
+    
     if alex_computer:
         im_path = "C:/Github/ASTRON-1263/data/original/"
         save_path  = "C:/Github/ASTRON-1263/data/contour/"
@@ -18,24 +19,16 @@ if __name__ == "__main__":
         
     im_path = "C:/Users/tmd44/Desktop/small-denoise/"
     save_path = "C:/Users/tmd44/Desktop/contours/"
+    good_im_path = "C:/Users/tmd44/Desktop/goods/"
+    
     start = time.clock()
 
     # determine base threshold
-    base_im = np.array(Image.open(im_path + "AutoGrab001.fits.jpg"))
-    base_threshold = u.determine_threshold(u.denoise(base_im), 0, len(base_im), 0, 150, confidence_interval = 10)
-
-    for file in os.listdir(im_path):
-        if file.endswith(".jpg"):
-            # crop image
-            cropped_im = u.get_cropped_image(im_path + file, base_threshold)
-
-            # get initial snake shape
-            init_snake = u.get_init_snake(cropped_im)
-
-            # determine contour around saturn
-            final_snake = u.fit_snake(cropped_im, init_snake, auto_blur = True)
-
-            # save image
-            u.display_snake_fig(cropped_im, init_snake, final_snake, show_fig = False, save_fig = True, save_file=(save_path + file))
+    good_snakes, good_files = u.get_snakes(good_im_path, good_im_path + "AutoGrab001.fits.jpg", 1)
+    test_snakes, test_files = u.get_snakes(im_path, good_im_path + "AutoGrab001.fits.jpg")
+ 
+    for i in range(0, len(test_snakes)):
+        print(u.compare_snakes(good_snakes[0], test_snakes[i]), good_files[0], test_files[i])
+    
     end = time.clock()
     print("delta: ", end-start)
