@@ -1,9 +1,7 @@
 import utilities as u
-import os
 import numpy as np
 import time
-#Image/FITS Processing libraries
-from PIL import Image
+from math import ceil
         
 if __name__ == "__main__":
     # load and save paths
@@ -25,10 +23,21 @@ if __name__ == "__main__":
 
     # determine base threshold
     good_snakes, good_files = u.get_snakes(good_im_path, good_im_path + "AutoGrab001.fits.jpg", 1)
-    test_snakes, test_files = u.get_snakes(im_path, good_im_path + "AutoGrab001.fits.jpg")
+    im_snakes, im_files = u.get_snakes(im_path, good_im_path + "AutoGrab001.fits.jpg")
  
-    for i in range(0, len(test_snakes)):
-        print(u.compare_snakes(good_snakes[0], test_snakes[i]), good_files[0], test_files[i])
+    e_distances = []
+    for i in range(0, len(im_snakes)):
+       e_distances.append(u.compare_snakes(good_snakes[0], im_snakes[i]))
     
+    # get the top 10 percent of the images
+    sort_inds = np.argsort(e_distances)
+    top_10_num = ceil(len(sort_inds)*0.1)
+    
+    top_10 = sort_inds[0:top_10_num]
+    
+    for i in range(0, len(top_10)):
+        im_ind = top_10[i]
+        print(good_files[0], im_files[im_ind], e_distances[im_ind])
+        
     end = time.clock()
     print("delta: ", end-start)
