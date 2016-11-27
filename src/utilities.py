@@ -138,30 +138,29 @@ def display_snake_fig(im_arr, init_snake, final_snake, show_fig = False, save_fi
 
     return
 
-def get_snakes(im_path, base_filename, max_count=-1):
-	# determine base threshold
-	base_im = np.array(Image.open(base_filename))
-	base_threshold = determine_threshold(denoise(base_im), 0, len(base_im), 0, 150, confidence_interval = 10)
+def get_snakes(im_path, file_names, base_filename, max_count=-1):
+    # determine base threshold
+    base_im = np.array(Image.open(base_filename))
+    base_threshold = determine_threshold(denoise(base_im), 0, len(base_im), 0, 150, confidence_interval = 10)
 
-	count = 0
-	snakes_list = []
-	file_list = []
-	for file in os.listdir(im_path):
-		if count == max_count:
-			break
-		if file.endswith(".jpg"):
-			count += 1
-			# crop image
-			cropped_im = get_cropped_image(im_path + file, base_threshold)
-			
-			# get initial snake shape
-			init_snake = get_init_snake(cropped_im)
+    count = 0
+    snakes_list = []
+    for file in file_names:
+        if count == max_count:
+            break
+            
+        count += 1
 
-			# determine contour around saturn
-			final_snake = fit_snake(cropped_im, init_snake, auto_blur = True)
-			snakes_list.append(final_snake)
-			file_list.append(file)
-	return snakes_list, file_list
+        # crop image
+        cropped_im = get_cropped_image(im_path + file, base_threshold)
+
+        # get initial snake shape
+        init_snake = get_init_snake(cropped_im)
+
+        # determine contour around saturn
+        final_snake = fit_snake(cropped_im, init_snake, auto_blur = True)
+        snakes_list.append(final_snake)
+    return snakes_list
 
 def compare_snakes(generic_snake_left, generic_snake_right):
     difference = generic_snake_right - generic_snake_left
