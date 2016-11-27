@@ -1,0 +1,223 @@
+base image: AutoGrab001.fits.jpg
+AutoGrab001.fits.jpg 46.2446076377
+AutoGrab002.fits.jpg 230.560243172
+AutoGrab003.fits.jpg 246.251994452
+AutoGrab004.fits.jpg 164.977818667
+AutoGrab005.fits.jpg 205.282685005
+AutoGrab006.fits.jpg 200.211394473
+AutoGrab007.fits.jpg 228.654559293
+AutoGrab008.fits.jpg 212.663713154
+AutoGrab009.fits.jpg 120.134850562
+AutoGrab010.fits.jpg 157.946794744
+AutoGrab011.fits.jpg 181.473609542
+AutoGrab012.fits.jpg 158.521013907
+AutoGrab013.fits.jpg 177.489088906
+AutoGrab014.fits.jpg 245.774742078
+AutoGrab015.fits.jpg 170.406762991
+AutoGrab016.fits.jpg 117.143812823
+AutoGrab017.fits.jpg 258.280915827
+AutoGrab018.fits.jpg 306.634000812
+AutoGrab019.fits.jpg 135.951233466
+AutoGrab020.fits.jpg 136.897674263
+AutoGrab021.fits.jpg 185.523701059
+AutoGrab022.fits.jpg 175.807850371
+AutoGrab023.fits.jpg 303.767462558
+AutoGrab024.fits.jpg 181.696499606
+AutoGrab025.fits.jpg 140.715926568
+AutoGrab026.fits.jpg 181.379613321
+AutoGrab027.fits.jpg 242.651578263
+AutoGrab028.fits.jpg 177.421659305
+AutoGrab029.fits.jpg 199.254907004
+AutoGrab030.fits.jpg 129.185710123
+AutoGrab031.fits.jpg 120.542557498
+AutoGrab032.fits.jpg 119.112537428
+AutoGrab033.fits.jpg 215.043824444
+AutoGrab034.fits.jpg 117.256560896
+AutoGrab035.fits.jpg 131.521347794
+AutoGrab036.fits.jpg 257.500892464
+AutoGrab037.fits.jpg 135.656223612
+AutoGrab038.fits.jpg 148.044686393
+AutoGrab039.fits.jpg 142.386689776
+AutoGrab040.fits.jpg 220.987810879
+AutoGrab041.fits.jpg 140.544214554
+AutoGrab042.fits.jpg 132.706147909
+AutoGrab043.fits.jpg 231.709190949
+AutoGrab044.fits.jpg 204.204863802
+AutoGrab045.fits.jpg 150.075102377
+AutoGrab046.fits.jpg 161.8345761
+AutoGrab047.fits.jpg 181.786874288
+AutoGrab048.fits.jpg 217.848037638
+AutoGrab049.fits.jpg 157.916581392
+AutoGrab050.fits.jpg 206.89875383
+AutoGrab051.fits.jpg 159.08583856
+AutoGrab052.fits.jpg 174.885056365
+AutoGrab053.fits.jpg 160.579312582
+AutoGrab054.fits.jpg 176.986719126
+AutoGrab055.fits.jpg 148.973463313
+AutoGrab056.fits.jpg 544.206634935
+AutoGrab057.fits.jpg 198.304134493
+AutoGrab058.fits.jpg 144.830900307
+AutoGrab059.fits.jpg 138.618879228
+AutoGrab060.fits.jpg 192.563749203
+AutoGrab061.fits.jpg 1016.95165174
+AutoGrab062.fits.jpg 164.86949935
+AutoGrab063.fits.jpg 232.738340301
+AutoGrab064.fits.jpg 174.274042976
+AutoGrab065.fits.jpg 163.884881926
+AutoGrab066.fits.jpg 157.046193201
+AutoGrab067.fits.jpg 267.534460361
+AutoGrab068.fits.jpg 217.295688461
+AutoGrab069.fits.jpg 156.286937404
+AutoGrab070.fits.jpg 148.984686141
+AutoGrab071.fits.jpg 136.235696184
+AutoGrab072.fits.jpg 229.365336058
+AutoGrab073.fits.jpg 148.305186013
+AutoGrab074.fits.jpg 319.408554195
+AutoGrab075.fits.jpg 229.614375624
+AutoGrab076.fits.jpg 149.490799696
+AutoGrab077.fits.jpg 165.599177419
+AutoGrab078.fits.jpg 216.375643314
+AutoGrab079.fits.jpg 217.926529127
+AutoGrab080.fits.jpg 163.109101625
+AutoGrab081.fits.jpg 117.828070136
+AutoGrab082.fits.jpg 261.402764582
+AutoGrab083.fits.jpg 135.042638314
+AutoGrab084.fits.jpg 187.024258453
+AutoGrab085.fits.jpg nan
+AutoGrab086.fits.jpg nan
+AutoGrab087.fits.jpg nan
+AutoGrab088.fits.jpg nan
+AutoGrab089.fits.jpg nan
+AutoGrab090.fits.jpg nan
+AutoGrab091.fits.jpg nan
+AutoGrab092.fits.jpg nan
+AutoGrab093.fits.jpg nan
+AutoGrab094.fits.jpg nan
+AutoGrab095.fits.jpg nan
+AutoGrab096.fits.jpg nan
+AutoGrab097.fits.jpg nan
+AutoGrab098.fits.jpg nan
+AutoGrab099.fits.jpg nan
+AutoGrab100.fits.jpg nan
+AutoGrab1000.fits.jpg 70318.3053055
+AutoGrab1001.fits.jpg 131.552779525
+AutoGrab1002.fits.jpg 296.907508328
+AutoGrab1003.fits.jpg 225.192242927
+AutoGrab1004.fits.jpg 261.383316527
+AutoGrab1005.fits.jpg 274.292033021
+AutoGrab1006.fits.jpg 285.01306588
+AutoGrab1007.fits.jpg 243.000193917
+AutoGrab1008.fits.jpg 208.015645418
+AutoGrab1009.fits.jpg 216.932778388
+AutoGrab101.fits.jpg 185.15347271
+AutoGrab1010.fits.jpg 172.719144938
+AutoGrab1011.fits.jpg 255.384961361
+AutoGrab1012.fits.jpg 280.61877843
+AutoGrab1013.fits.jpg 315.522950427
+AutoGrab1014.fits.jpg 391.70324486
+AutoGrab1015.fits.jpg 375.295102648
+AutoGrab1016.fits.jpg 289.532755013
+AutoGrab1017.fits.jpg 451.47129814
+AutoGrab1018.fits.jpg 165.886967236
+AutoGrab1019.fits.jpg 379.490932819
+AutoGrab102.fits.jpg 145.320233949
+AutoGrab1020.fits.jpg 238.607553909
+AutoGrab1021.fits.jpg 332.109119998
+AutoGrab1022.fits.jpg 344.619292368
+AutoGrab1023.fits.jpg 405.357004823
+AutoGrab1024.fits.jpg 150.165047781
+AutoGrab1025.fits.jpg 355.953418333
+AutoGrab1026.fits.jpg 124.615562766
+AutoGrab1027.fits.jpg 225.714011139
+AutoGrab1028.fits.jpg 160.670469964
+AutoGrab1029.fits.jpg 331.451811446
+AutoGrab103.fits.jpg 171.436237214
+AutoGrab1030.fits.jpg 199.17616248
+AutoGrab1031.fits.jpg 152.96113514
+AutoGrab1032.fits.jpg 819.10318059
+AutoGrab1033.fits.jpg 494.245436612
+AutoGrab1034.fits.jpg 217.841908761
+AutoGrab1035.fits.jpg 162.199145395
+AutoGrab1036.fits.jpg 315.461462033
+AutoGrab1037.fits.jpg 266.967464823
+AutoGrab1038.fits.jpg 191.450371147
+AutoGrab1039.fits.jpg 379.707919415
+AutoGrab104.fits.jpg 165.586193949
+AutoGrab1040.fits.jpg 229.141529279
+AutoGrab1041.fits.jpg 233.922736108
+AutoGrab1042.fits.jpg 553.065017182
+AutoGrab1043.fits.jpg 113.919201216
+AutoGrab1044.fits.jpg 315.230095918
+AutoGrab1045.fits.jpg 269.068483106
+AutoGrab1046.fits.jpg 253.53445557
+AutoGrab1047.fits.jpg 142.913602442
+AutoGrab1048.fits.jpg 117.368600711
+AutoGrab1049.fits.jpg 202.382982048
+AutoGrab105.fits.jpg 138.914534722
+AutoGrab1050.fits.jpg 327.416130549
+AutoGrab1051.fits.jpg 184.867531809
+AutoGrab1052.fits.jpg 264.251348243
+AutoGrab1053.fits.jpg 178.828637227
+AutoGrab1054.fits.jpg 156.42130487
+AutoGrab1055.fits.jpg 207.477196421
+AutoGrab1056.fits.jpg 207.749832656
+AutoGrab1057.fits.jpg 195.926829746
+AutoGrab1058.fits.jpg 256.124589491
+AutoGrab1059.fits.jpg 162.006054268
+AutoGrab106.fits.jpg 133.229632826
+AutoGrab1060.fits.jpg 161.682420309
+AutoGrab1061.fits.jpg 184.103644218
+AutoGrab1062.fits.jpg 180.56084073
+AutoGrab1063.fits.jpg 138.612782746
+AutoGrab1064.fits.jpg 285.912853014
+AutoGrab1065.fits.jpg 164.178174281
+AutoGrab1066.fits.jpg 292.843560107
+AutoGrab1067.fits.jpg 312.299073231
+AutoGrab1068.fits.jpg 338.531412145
+AutoGrab1069.fits.jpg 153.400619582
+AutoGrab107.fits.jpg 217.945400578
+AutoGrab1070.fits.jpg 226.949976604
+AutoGrab1071.fits.jpg 256.508633341
+AutoGrab1072.fits.jpg 178.508253778
+AutoGrab1073.fits.jpg 293.622003942
+AutoGrab1074.fits.jpg nan
+AutoGrab1075.fits.jpg nan
+AutoGrab1076.fits.jpg nan
+AutoGrab1077.fits.jpg nan
+AutoGrab1078.fits.jpg nan
+AutoGrab1079.fits.jpg nan
+AutoGrab108.fits.jpg nan
+AutoGrab1080.fits.jpg nan
+AutoGrab1081.fits.jpg nan
+AutoGrab1082.fits.jpg nan
+AutoGrab1083.fits.jpg nan
+AutoGrab1084.fits.jpg nan
+AutoGrab1085.fits.jpg nan
+AutoGrab1086.fits.jpg nan
+AutoGrab1087.fits.jpg nan
+AutoGrab1088.fits.jpg nan
+AutoGrab1089.fits.jpg 208.710858945
+AutoGrab109.fits.jpg 189.526941557
+AutoGrab1090.fits.jpg 395.000677951
+
+AutoGrab001.fits.jpg AutoGrab001.fits.jpg 46.2446076377
+AutoGrab001.fits.jpg AutoGrab1043.fits.jpg 113.919201216
+AutoGrab001.fits.jpg AutoGrab016.fits.jpg 117.143812823
+AutoGrab001.fits.jpg AutoGrab034.fits.jpg 117.256560896
+AutoGrab001.fits.jpg AutoGrab1048.fits.jpg 117.368600711
+AutoGrab001.fits.jpg AutoGrab081.fits.jpg 117.828070136
+AutoGrab001.fits.jpg AutoGrab032.fits.jpg 119.112537428
+AutoGrab001.fits.jpg AutoGrab009.fits.jpg 120.134850562
+AutoGrab001.fits.jpg AutoGrab031.fits.jpg 120.542557498
+AutoGrab001.fits.jpg AutoGrab1026.fits.jpg 124.615562766
+AutoGrab001.fits.jpg AutoGrab030.fits.jpg 129.185710123
+AutoGrab001.fits.jpg AutoGrab035.fits.jpg 131.521347794
+AutoGrab001.fits.jpg AutoGrab1001.fits.jpg 131.552779525
+AutoGrab001.fits.jpg AutoGrab042.fits.jpg 132.706147909
+AutoGrab001.fits.jpg AutoGrab106.fits.jpg 133.229632826
+AutoGrab001.fits.jpg AutoGrab083.fits.jpg 135.042638314
+AutoGrab001.fits.jpg AutoGrab037.fits.jpg 135.656223612
+AutoGrab001.fits.jpg AutoGrab019.fits.jpg 135.951233466
+AutoGrab001.fits.jpg AutoGrab071.fits.jpg 136.235696184
+AutoGrab001.fits.jpg AutoGrab020.fits.jpg 136.897674263
+delta:  575.4021556354604
