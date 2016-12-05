@@ -13,23 +13,23 @@ def denoise(im):
 
 if __name__ == "__main__":        
     # path to FITS file
-    path = "C:/Github/ASTRON-1263/data/saturn-0.01/"
+    path = "C:/Github/ASTRON-1263/data/moon-fits/"
 
     # save images to these paths
-    original = "C:/Github/ASTRON-1263/data/original/"
+    original = "C:/Github/ASTRON-1263/data/moon-fits/"
     denoised = "C:/Github/ASTRON-1263/data/denoise/"
 
     save_denoised = False
     save_original = True
 
     for file in os.listdir(path):
-        if file.endswith(".fits"):
+        if file.endswith(".FIT"):
             # extract image from fits
             autograb_data = fits.open(path + file)
             image_data = autograb_data[0].data
 
             if save_original:
-                misc.imsave(original + file + '.jpg', image_data)
+                misc.imsave('C:/Github/ASTRON-1263/data/moon-green/' + file + '.jpg', image_data)
 
             if save_denoised:
                 misc.imsave(denoised + file + '.jpg', denoise(image_data))
