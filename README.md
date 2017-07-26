@@ -1,6 +1,8 @@
 # ASTRON-1263
 ASTRON 1263 - Final Project - Fast Image and Automatic Analysis of Saturn
 
+Uses active contour modeling to obtain the outline of Saturn against a dark background. Takes an image that represents a 'good' image of Saturn and computes a 'good' contour. Compares the active contour model of the 'good' image with all other images and determines how similar each image is to the 'good' contour.
+
 ## File Description
 
 #### src/quality_analysis.py
